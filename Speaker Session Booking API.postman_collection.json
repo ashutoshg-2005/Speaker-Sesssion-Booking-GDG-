@@ -1,0 +1,1316 @@
+{
+	"info": {
+		"_postman_id": "99778b62-0deb-457b-b373-c3e0caaf59e0",
+		"name": "Speaker Session Booking API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44620806",
+		"_collection_link": "https://ashutoshgaharwar.postman.co/workspace/Ashutosh-Gaharwar's-Workspace~781c7634-f4cb-464a-8512-54b5630a7c54/collection/44620806-99778b62-0deb-457b-b373-c3e0caaf59e0?action=share&source=collection_link&creator=44620806"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ferrarirenault3@gmail.com\",\n    \"password\": \"password123\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register",
+								"user"
+							]
+						},
+						"description": "### Register User\n\nThis endpoint is used to register a new user.\n\n#### Request Body\n\n- email (string, required): The email address of the user.\n    \n- password (string, required): The password for the user account.\n    \n- firstName (string, required): The first name of the user.\n    \n- lastName (string, required): The last name of the user.\n    \n\nExample:\n\n``` json\n{\n  \"email\": \"user@example.com\",\n  \"password\": \"yourPassword123\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\"\n}\n\n ```\n\n#### Response\n\n- Status: 201 Created\n    \n- Content-Type: application/json\n    \n\nExample:\n\n``` json\n{\n  \"message\": \"\"\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Register User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ferrarirenault3@gmail.com\",\n    \"password\": \"password123\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/register/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"register",
+										"user"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"55-HpmO0H1E1ChKD89D7OjWJm8YoOg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 15:26:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User registered. Please verify your email with OTP. Valid for 24 hours.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Register Speaker",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"speaker@example.com\",\n    \"password\": \"password123\",\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Smith\",\n    \"expertise\": [\"JavaScript\", \"Node.js\"],\n    \"pricePerSession\": 50\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register/speaker",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register",
+								"speaker"
+							]
+						},
+						"description": "### Register Speaker\n\nThis endpoint allows users to register as a speaker.\n\n#### Request Body\n\n- email (string, required): The email of the speaker.\n    \n- password (string, required): The password for the speaker's account.\n    \n- firstName (string, required): The first name of the speaker.\n    \n- lastName (string, required): The last name of the speaker.\n    \n- expertise (array of strings, required): The expertise areas of the speaker.\n    \n- pricePerSession (number, required): The price per session for the speaker's services.\n    \n\n#### Response\n\nThe response for this request is a JSON object with the following properties:\n\n- message (string): A message related to the registration process.\n    \n- tempCode (string): A temporary code, if applicable.\n    \n\n#### Example\n\nRequest:\n\n``` json\n{\n  \"email\": \"ashutoshgaharwar05@gmail.com\",\n  \"password\": \"password123\",\n  \"firstName\": \"Ashutosh\",\n  \"lastName\": \"Gaharwar\",\n  \"expertise\": [\"JavaScript\"],\n  \"pricePerSession\": 50\n}\n\n ```\n\nResponse:\n\n``` json\n{\n  \"message\": \"\",\n  \"tempCode\": \"\"\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Register Speaker",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ashutoshgaharwar05@gmail.com\",\n    \"password\": \"password123\",\n    \"firstName\": \"Ashutosh\",\n    \"lastName\": \"Gaharwar\",\n    \"expertise\": [\"JavaScript\", \"Node.js\"],\n    \"pricePerSession\": 50\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/register/speaker",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"register",
+										"speaker"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "108"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6c-AUfxrLl7cQlhfHSISxn35zhwVRw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 15:27:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Speaker registered. Please verify your email with OTP. Valid for 24 hours.\",\n    \"tempCode\": \"948494\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Verify OTP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ashutoshgaharwar05@gmail.com\",\n    \"otp\": \"666254\",\n    \"userType\": \"SPEAKER\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/verify-otp",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"verify-otp"
+							]
+						},
+						"description": "### Verify OTP Authentication\n\nThis endpoint allows the user to verify their OTP for authentication.\n\n#### Request Body\n\n- email (string, required): The email address of the user.\n    \n- otp (string, required): The OTP code to be verified.\n    \n- userType (string, required): The type of user (e.g. SPEAKER).\n    \n\n#### Response\n\nThe response will be a JSON object with the following schema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"message\": {\n      \"type\": \"string\"\n    }\n  }\n}\n\n ```\n\nThe response will contain a \"message\" key with a string value, which will provide the status of the OTP verification process."
+					},
+					"response": [
+						{
+							"name": "Verify OTP",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ferrarirenault3@gmail.com\",\n    \"otp\": \"331517\",\n    \"userType\": \"USER\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/verify-otp",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"verify-otp"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29-FwmB7f+DMIStv83qlAh+ZHaWnfU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 15:27:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Email verified successfully\"\n}"
+						},
+						{
+							"name": "Verify OTP",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ashutoshgaharwar05@gmail.com\",\n    \"otp\": \"948494\",\n    \"userType\": \"SPEAKER\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/verify-otp",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"verify-otp"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29-FwmB7f+DMIStv83qlAh+ZHaWnfU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 15:29:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Email verified successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"if (jsonData.token) {",
+									"    pm.environment.set(\"userToken\", jsonData.token);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"password123\",\n    \"userType\": \"USER\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "This endpoint allows users to log in and obtain an authentication token. The request should be sent as an HTTP POST to {{baseUrl}}/api/auth/login with the user's email, password, and userType in the request body.\n\n### Request Body\n\n- email (string): The email of the user.\n    \n- password (string): The password of the user.\n    \n- userType (string): The type of user.\n    \n\n### Response\n\nThe response of this request is a JSON object with a token field. Here is the JSON schema for the response:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"token\": {\n      \"type\": \"string\"\n    }\n  }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Login User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ferrarirenault3@gmail.com\",\n    \"password\": \"password123\",\n    \"userType\": \"USER\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "255"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ff-xt2CXLwqbfJhB+BbHHW8KBWr4/g\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 15:29:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MTYzNTgxOTVkMWY5NWFlZGM5YjI2MSIsImVtYWlsIjoiZmVycmFyaXJlbmF1bHQzQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoiVVNFUiIsImlhdCI6MTc0NjI4NjE3MSwiZXhwIjoxNzQ2MzcyNTcxfQ.WbEOSSt0FrsMLliNg5V4HeXeOh6jPbw3YH9CiynFgYo\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login Speaker",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"if (jsonData.token) {",
+									"    pm.environment.set(\"speakerToken\", jsonData.token);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"speaker@example.com\",\n    \"password\": \"password123\",\n    \"userType\": \"SPEAKER\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "### Login API\n\nThis API endpoint is used to authenticate and login a user.\n\n#### Request Body\n\n- `email` (string): The email address of the user.\n    \n- `password` (string): The password of the user.\n    \n- `userType` (string): The type of user, e.g., \"SPEAKER\".\n    \n\n#### Response\n\nUpon successful authentication, the API returns a status code of 200 and a JSON object with a `token` field.\n\nExample Response:\n\n``` json\n{\n    \"token\": \"\"\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Login Speaker",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ashutoshgaharwar05@gmail.com\",\n    \"password\": \"password123\",\n    \"userType\": \"SPEAKER\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "263"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"107-umM5+zyIXkTTYoRH4Z7uhxgxcT4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 15:29:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MTYzNWU1OTVkMWY5NWFlZGM5YjI2MiIsImVtYWlsIjoiYXNodXRvc2hnYWhhcndhcjA1QGdtYWlsLmNvbSIsInVzZXJUeXBlIjoiU1BFQUtFUiIsImlhdCI6MTc0NjI4NjE4NywiZXhwIjoxNzQ2MzcyNTg3fQ.37AIk_uPwmE9JuZzzDWh7zS1jKIatcpi0fPKE8U6tM0\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Speakers",
+			"item": [
+				{
+					"name": "Get All Speakers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/speakers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"speakers"
+							]
+						},
+						"description": "### GET /api/speakers\n\nThis endpoint retrieves a list of speakers.\n\n#### Request\n\nNo request body is required for this endpoint.\n\n#### Response\n\nThe response will be a JSON array containing speaker objects with the following properties:\n\n- `id` (string): The unique identifier of the speaker.\n    \n- `firstName` (string): The first name of the speaker.\n    \n- `lastName` (string): The last name of the speaker.\n    \n- `expertise` (array of strings): An array of expertise areas of the speaker.\n    \n- `pricePerSession` (number): The price per session for the speaker.\n    \n- `timeSlots` (array): An array of time slots available for the speaker.\n    \n\nExample response:\n\n``` json\n[\n  {\n    \"id\": \"\",\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"expertise\": [\"\"],\n    \"pricePerSession\": 0,\n    \"timeSlots\": []\n  }\n]\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Get All Speakers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/speakers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"speakers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "153"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"99-C7AY4ESN8aS0z6JBMGgTWJDPiPc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 15:30:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"681635e595d1f95aedc9b262\",\n        \"firstName\": \"Ashutosh\",\n        \"lastName\": \"Gaharwar\",\n        \"expertise\": [\n            \"JavaScript\",\n            \"Node.js\"\n        ],\n        \"pricePerSession\": 50,\n        \"timeSlots\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Update Speaker Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{speakerToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"expertise\": [\"JavaScript\", \"Node.js\", \"React\"],\n    \"pricePerSession\": 75\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/speakers/profile",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"speakers",
+								"profile"
+							]
+						},
+						"description": "### Update Speaker Profile\n\nThis endpoint allows the client to update the profile of a speaker.\n\n#### Request Body\n\n- `expertise` (array of strings, required): An array of expertise areas for the speaker.\n    \n- `pricePerSession` (number, required): The price per session for the speaker.\n    \n\n#### Response\n\nThe response will be in JSON format with the following schema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"id\": { \"type\": \"string\" },\n    \"email\": { \"type\": \"string\" },\n    \"password\": { \"type\": \"string\" },\n    \"firstName\": { \"type\": \"string\" },\n    \"lastName\": { \"type\": \"string\" },\n    \"expertise\": {\n      \"type\": \"array\",\n      \"items\": { \"type\": \"string\" }\n    },\n    \"pricePerSession\": { \"type\": \"number\" },\n    \"isVerified\": { \"type\": \"boolean\" },\n    \"otpCode\": { \"type\": [\"string\", \"null\"] },\n    \"otpExpires\": { \"type\": [\"string\", \"null\"] },\n    \"createdAt\": { \"type\": \"string\" },\n    \"updatedAt\": { \"type\": \"string\" }\n  }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Update Speaker Profile",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{speakerToken}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"expertise\": [\"JavaScript\", \"Node.js\", \"React\"],\n    \"pricePerSession\": 75\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/speakers/profile",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"speakers",
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "386"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"182-+MlcKdHzDRDXDFQAMAWkmyFLsuY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 15:30:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"681635e595d1f95aedc9b262\",\n    \"email\": \"ashutoshgaharwar05@gmail.com\",\n    \"password\": \"$2b$10$/AGPLBkLCA.CG7sdLqxOpeourewV9lg5MEjqYWT8zpwUyHAwNFmqS\",\n    \"firstName\": \"Ashutosh\",\n    \"lastName\": \"Gaharwar\",\n    \"expertise\": [\n        \"JavaScript\",\n        \"Node.js\",\n        \"React\"\n    ],\n    \"pricePerSession\": 75,\n    \"isVerified\": true,\n    \"otpCode\": null,\n    \"otpExpires\": null,\n    \"createdAt\": \"2025-05-03T15:27:33.352Z\",\n    \"updatedAt\": \"2025-05-03T15:30:50.500Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Time Slots",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{speakerToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"2025-05-04\",\n    \"slots\": [\n        {\n            \"startTime\": \"2025-05-04T3:30:00.000Z\",  // 9:00 AM IST converted to UTC\n            \"endTime\": \"2025-05-04T4:30:00.000Z\"     // 10:00 AM IST converted to UTC\n        },\n        {\n            \"startTime\": \"2025-05-04T05:30:00.000Z\",  // 11:00 AM IST converted to UTC\n            \"endTime\": \"2025-05-04T:30:00.000Z\"     // 12:00 PM IST converted to UTC\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/speakers/time-slots",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"speakers",
+								"time-slots"
+							]
+						},
+						"description": "### Add Speaker Time Slots\n\nThis endpoint allows you to add time slots for speakers on a specific date.\n\n#### Request Body\n\n- `date` (string): The date for which the time slots are being added.\n    \n- `slots` (array): An array of objects containing the start and end time for each slot.\n    \n\nExample:\n\n``` json\n{\n  \"date\": \"2025-05-04\",\n  \"slots\": [\n    {\n      \"startTime\": \"2025-05-04T04:30:00.000Z\",\n      \"endTime\": \"2025-05-04T05:30:00.000Z\"\n    }\n  ]\n}\n\n ```\n\n#### Response\n\n- `id` (string): The unique identifier for the time slot.\n    \n- `speakerId` (string): The ID of the speaker associated with the time slot.\n    \n- `date` (string): The date for which the time slot is added.\n    \n- `startTime` (string): The start time of the time slot.\n    \n- `endTime` (string): The end time of the time slot.\n    \n- `isBooked` (boolean): Indicates if the time slot is booked or not.\n    \n- `createdAt` (string): The timestamp when the time slot was created.\n    \n- `updatedAt` (string): The timestamp when the time slot was last updated.\n    \n\nExample Response:\n\n``` json\n[\n  {\n    \"id\": \"\",\n    \"speakerId\": \"\",\n    \"date\": \"\",\n    \"startTime\": \"\",\n    \"endTime\": \"\",\n    \"isBooked\": true,\n    \"createdAt\": \"\",\n    \"updatedAt\": \"\"\n  }\n]\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Create Time Slots",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{speakerToken}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"date\": \"2025-05-04\",\n    \"slots\": [\n        {\n            \"startTime\": \"2025-05-04T04:30:00.000Z\",  // 10:00 AM IST\n            \"endTime\": \"2025-05-04T05:30:00.000Z\"     // 11:00 AM IST\n        },\n        {\n            \"startTime\": \"2025-05-04T06:30:00.000Z\",  // 12:00 PM IST\n            \"endTime\": \"2025-05-04T07:30:00.000Z\"     // 1:00 PM IST\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/speakers/time-slots",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"speakers",
+										"time-slots"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "557"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"22d-wRmvzXXsgjzwIu+2pzTHXIfhA/8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 15:31:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"681636de95d1f95aedc9b263\",\n        \"speakerId\": \"681635e595d1f95aedc9b262\",\n        \"date\": \"2025-05-03T18:30:00.000Z\",\n        \"startTime\": \"2025-05-03T23:00:00.000Z\",\n        \"endTime\": \"2025-05-04T00:00:00.000Z\",\n        \"isBooked\": false,\n        \"createdAt\": \"2025-05-03T15:31:42.317Z\",\n        \"updatedAt\": \"2025-05-03T15:31:42.317Z\"\n    },\n    {\n        \"id\": \"681636de95d1f95aedc9b264\",\n        \"speakerId\": \"681635e595d1f95aedc9b262\",\n        \"date\": \"2025-05-03T18:30:00.000Z\",\n        \"startTime\": \"2025-05-04T01:00:00.000Z\",\n        \"endTime\": \"2025-05-04T02:00:00.000Z\",\n        \"isBooked\": false,\n        \"createdAt\": \"2025-05-03T15:31:42.317Z\",\n        \"updatedAt\": \"2025-05-03T15:31:42.317Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Speaker Time Slots",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{speakerToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/speakers/time-slots",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"speakers",
+								"time-slots"
+							]
+						},
+						"description": "The endpoint retrieves a list of time slots for speakers via an HTTP GET request to {{baseUrl}}/api/speakers/time-slots.\n\n### Response\n\nThe response will be a JSON array containing objects with the following properties:\n\n- `id` (string): The unique identifier for the time slot.\n    \n- `speakerId` (string): The identifier of the speaker associated with the time slot.\n    \n- `date` (string): The date of the time slot.\n    \n- `startTime` (string): The start time of the time slot.\n    \n- `endTime` (string): The end time of the time slot.\n    \n- `isBooked` (boolean): Indicates whether the time slot is booked or not.\n    \n- `createdAt` (string): The timestamp when the time slot was created.\n    \n- `updatedAt` (string): The timestamp when the time slot was last updated.\n    \n- `session` (object or null): Details of the session associated with the time slot, or null if not applicable.\n    \n\n#### Example\n\n``` json\n[\n  {\n    \"id\": \"\",\n    \"speakerId\": \"\",\n    \"date\": \"\",\n    \"startTime\": \"\",\n    \"endTime\": \"\",\n    \"isBooked\": true,\n    \"createdAt\": \"\",\n    \"updatedAt\": \"\",\n    \"session\": null\n  }\n]\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Get Speaker Time Slots",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{speakerToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/speakers/time-slots",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"speakers",
+										"time-slots"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "587"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"24b-c6kMpwf4mLzn2/BjUGsYdE/Vsq8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 15:32:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"681636de95d1f95aedc9b263\",\n        \"speakerId\": \"681635e595d1f95aedc9b262\",\n        \"date\": \"2025-05-03T18:30:00.000Z\",\n        \"startTime\": \"2025-05-03T23:00:00.000Z\",\n        \"endTime\": \"2025-05-04T00:00:00.000Z\",\n        \"isBooked\": false,\n        \"createdAt\": \"2025-05-03T15:31:42.317Z\",\n        \"updatedAt\": \"2025-05-03T15:31:42.317Z\",\n        \"session\": null\n    },\n    {\n        \"id\": \"681636de95d1f95aedc9b264\",\n        \"speakerId\": \"681635e595d1f95aedc9b262\",\n        \"date\": \"2025-05-03T18:30:00.000Z\",\n        \"startTime\": \"2025-05-04T01:00:00.000Z\",\n        \"endTime\": \"2025-05-04T02:00:00.000Z\",\n        \"isBooked\": false,\n        \"createdAt\": \"2025-05-03T15:31:42.317Z\",\n        \"updatedAt\": \"2025-05-03T15:31:42.317Z\",\n        \"session\": null\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Sessions",
+			"item": [
+				{
+					"name": "Book Session",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{userToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"timeSlotId\": \"6814d0e5dfc05007b13ccdeb\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/sessions/book",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"sessions",
+								"book"
+							]
+						},
+						"description": "### Create a New Session Booking\n\nThis endpoint allows the user to book a new session by sending a POST request to the specified URL.\n\n#### Request Body\n\n- timeSlotId (string): The ID of the time slot for the session booking.\n    \n\n#### Response\n\nUpon successful execution, the server returns a status code of 201 and a JSON object with the following properties:\n\n- id (string): The ID of the session booking.\n    \n- userId (string): The ID of the user who booked the session.\n    \n- speakerId (string): The ID of the speaker for the session.\n    \n- timeSlotId (string): The ID of the time slot for the session.\n    \n- status (string): The status of the booking.\n    \n- createdAt (string): The timestamp of creation.\n    \n- updatedAt (string): The timestamp of the last update.\n    \n- user (object): Details of the user who booked the session.\n    \n    - id (string): The ID of the user.\n        \n    - email (string): The email of the user.\n        \n    - firstName (string): The first name of the user.\n        \n    - lastName (string): The last name of the user.\n        \n    - isVerified (boolean): Indicates if the user is verified.\n        \n    - userType (string): The type of user.\n        \n    - createdAt (string): The timestamp of user creation.\n        \n    - updatedAt (string): The timestamp of the last user update.\n        \n- speaker (object): Details of the speaker for the session.\n    \n    - id (string): The ID of the speaker.\n        \n    - email (string): The email of the speaker.\n        \n    - firstName (string): The first name of the speaker.\n        \n    - lastName (string): The last name of the speaker.\n        \n    - expertise (array): The expertise of the speaker.\n        \n    - pricePerSession (number): The price per session charged by the speaker.\n        \n    - isVerified (boolean): Indicates if the speaker is verified.\n        \n    - createdAt (string): The timestamp of speaker creation.\n        \n    - updatedAt (string): The timestamp of the last speaker update.\n        \n- timeSlot (object): Details of the time slot for the session.\n    \n    - id (string): The ID of the time slot.\n        \n    - speakerId (string): The ID of the speaker for the time slot.\n        \n    - date (string): The date of the time slot.\n        \n    - startTime (string): The start time of the time slot.\n        \n    - endTime (string): The end time of the time slot.\n        \n    - isBooked (boolean): Indicates if the time slot is booked.\n        \n    - createdAt (string): The timestamp of time slot creation.\n        \n    - updatedAt (string): The timestamp of the last time slot update.\n        \n- calendar (object): Details of the calendar event.\n    \n    - eventUrl (string): The URL of the calendar event.\n        \n\n#### Example Response\n\n``` json\n{\n  \"id\": \"\",\n  \"userId\": \"\",\n  \"speakerId\": \"\",\n  \"timeSlotId\": \"\",\n  \"status\": \"\",\n  \"createdAt\": \"\",\n  \"updatedAt\": \"\",\n  \"user\": {\n    \"id\": \"\",\n    \"email\": \"\",\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"isVerified\": true,\n    \"userType\": \"\",\n    \"createdAt\": \"\",\n    \"updatedAt\": \"\"\n  },\n  \"speaker\": {\n    \"id\": \"\",\n    \"email\": \"\",\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"expertise\": [\"\"],\n    \"pricePerSession\": 0,\n    \"isVerified\": true,\n    \"createdAt\": \"\",\n    \"updatedAt\": \"\"\n  },\n  \"timeSlot\": {\n    \"id\": \"\",\n    \"speakerId\": \"\",\n    \"date\": \"\",\n    \"startTime\": \"\",\n    \"endTime\": \"\",\n    \"isBooked\": true,\n    \"createdAt\": \"\",\n    \"updatedAt\": \"\"\n  },\n  \"calendar\": {\n    \"eventUrl\": \"\"\n  }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Book Session",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{userToken}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"timeSlotId\": \"681636de95d1f95aedc9b263\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/sessions/book",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"sessions",
+										"book"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1394"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"572-WZvdVApxVNw2cIvMawPV1o/Qmy8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 15:33:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"6816375795d1f95aedc9b266\",\n    \"userId\": \"6816358195d1f95aedc9b261\",\n    \"speakerId\": \"681635e595d1f95aedc9b262\",\n    \"timeSlotId\": \"681636de95d1f95aedc9b263\",\n    \"status\": \"PENDING\",\n    \"createdAt\": \"2025-05-03T15:33:43.786Z\",\n    \"updatedAt\": \"2025-05-03T15:33:43.786Z\",\n    \"user\": {\n        \"id\": \"6816358195d1f95aedc9b261\",\n        \"email\": \"ferrarirenault3@gmail.com\",\n        \"password\": \"$2b$10$.gU7l7ap5EqZr8ESQErlsuDfRQ3nh3ceJzZGGL2guJErQNPzb/Gcm\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"isVerified\": true,\n        \"userType\": \"USER\",\n        \"otpCode\": null,\n        \"otpExpires\": null,\n        \"createdAt\": \"2025-05-03T15:25:53.360Z\",\n        \"updatedAt\": \"2025-05-03T15:26:58.881Z\"\n    },\n    \"speaker\": {\n        \"id\": \"681635e595d1f95aedc9b262\",\n        \"email\": \"ashutoshgaharwar05@gmail.com\",\n        \"password\": \"$2b$10$/AGPLBkLCA.CG7sdLqxOpeourewV9lg5MEjqYWT8zpwUyHAwNFmqS\",\n        \"firstName\": \"Ashutosh\",\n        \"lastName\": \"Gaharwar\",\n        \"expertise\": [\n            \"JavaScript\",\n            \"Node.js\",\n            \"React\"\n        ],\n        \"pricePerSession\": 75,\n        \"isVerified\": true,\n        \"otpCode\": null,\n        \"otpExpires\": null,\n        \"createdAt\": \"2025-05-03T15:27:33.352Z\",\n        \"updatedAt\": \"2025-05-03T15:30:50.500Z\"\n    },\n    \"timeSlot\": {\n        \"id\": \"681636de95d1f95aedc9b263\",\n        \"speakerId\": \"681635e595d1f95aedc9b262\",\n        \"date\": \"2025-05-03T18:30:00.000Z\",\n        \"startTime\": \"2025-05-03T23:00:00.000Z\",\n        \"endTime\": \"2025-05-04T00:00:00.000Z\",\n        \"isBooked\": false,\n        \"createdAt\": \"2025-05-03T15:31:42.317Z\",\n        \"updatedAt\": \"2025-05-03T15:31:42.317Z\"\n    },\n    \"calendar\": {\n        \"eventUrl\": \"https://www.google.com/calendar/event?eid=amptaGo5OGtkcTkxb3JqdG43MGw5Mjk3ZDQgY29vbGFzaHV0b3NoNjY5MUBt\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get User Sessions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{userToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/sessions/my-sessions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"sessions",
+								"my-sessions"
+							]
+						},
+						"description": "The endpoint retrieves sessions associated with the current user.\n\n### Request\n\nNo request body is required for this request.\n\n### Response\n\nThe response is a JSON array containing session objects with the following properties:\n\n- `id` (string): The ID of the session.\n    \n- `userId` (string): The ID of the user associated with the session.\n    \n- `speakerId` (string): The ID of the speaker associated with the session.\n    \n- `timeSlotId` (string): The ID of the time slot for the session.\n    \n- `status` (string): The status of the session.\n    \n- `createdAt` (string): The timestamp when the session was created.\n    \n- `updatedAt` (string): The timestamp when the session was last updated.\n    \n- `speaker` (object): An object containing details of the speaker, including:\n    \n    - `firstName` (string): The first name of the speaker.\n        \n    - `lastName` (string): The last name of the speaker.\n        \n    - `email` (string): The email address of the speaker.\n        \n    - `expertise` (array of strings): An array of expertise areas of the speaker.\n        \n- `timeSlot` (object): An object containing details of the time slot, including:\n    \n    - `id` (string): The ID of the time slot.\n        \n    - `speakerId` (string): The ID of the speaker associated with the time slot.\n        \n    - `date` (string): The date of the time slot.\n        \n    - `startTime` (string): The start time of the time slot.\n        \n    - `endTime` (string): The end time of the time slot.\n        \n    - `isBooked` (boolean): Indicates if the time slot is booked.\n        \n    - `createdAt` (string): The timestamp when the time slot was created.\n        \n    - `updatedAt` (string): The timestamp when the time slot was last updated.\n        \n\nThe response status for this request is 200 (OK).\n\n#### JSON Schema\n\n``` json\n{\n  \"type\": \"array\",\n  \"items\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"id\": {\"type\": \"string\"},\n      \"userId\": {\"type\": \"string\"},\n      \"speakerId\": {\"type\": \"string\"},\n      \"timeSlotId\": {\"type\": \"string\"},\n      \"status\": {\"type\": \"string\"},\n      \"createdAt\": {\"type\": \"string\"},\n      \"updatedAt\": {\"type\": \"string\"},\n      \"speaker\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"firstName\": {\"type\": \"string\"},\n          \"lastName\": {\"type\": \"string\"},\n          \"email\": {\"type\": \"string\"},\n          \"expertise\": {\n            \"type\": \"array\",\n            \"items\": {\"type\": \"string\"}\n          }\n        }\n      },\n      \"timeSlot\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": {\"type\": \"string\"},\n          \"speakerId\": {\"type\": \"string\"},\n          \"date\": {\"type\": \"string\"},\n          \"startTime\": {\"type\": \"string\"},\n          \"endTime\": {\"type\": \"string\"},\n          \"isBooked\": {\"type\": \"boolean\"},\n          \"createdAt\": {\"type\": \"string\"},\n          \"updatedAt\": {\"type\": \"string\"}\n        }\n      }\n    }\n  }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Get User Sessions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{userToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/sessions/my-sessions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"sessions",
+										"my-sessions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "676"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2a4-EeY2eXpPbH+XtibPpFPmDeC9Hzw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 15:35:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"6816375795d1f95aedc9b266\",\n        \"userId\": \"6816358195d1f95aedc9b261\",\n        \"speakerId\": \"681635e595d1f95aedc9b262\",\n        \"timeSlotId\": \"681636de95d1f95aedc9b263\",\n        \"status\": \"PENDING\",\n        \"createdAt\": \"2025-05-03T15:33:43.786Z\",\n        \"updatedAt\": \"2025-05-03T15:33:43.786Z\",\n        \"speaker\": {\n            \"firstName\": \"Ashutosh\",\n            \"lastName\": \"Gaharwar\",\n            \"email\": \"ashutoshgaharwar05@gmail.com\",\n            \"expertise\": [\n                \"JavaScript\",\n                \"Node.js\",\n                \"React\"\n            ]\n        },\n        \"timeSlot\": {\n            \"id\": \"681636de95d1f95aedc9b263\",\n            \"speakerId\": \"681635e595d1f95aedc9b262\",\n            \"date\": \"2025-05-03T18:30:00.000Z\",\n            \"startTime\": \"2025-05-03T23:00:00.000Z\",\n            \"endTime\": \"2025-05-04T00:00:00.000Z\",\n            \"isBooked\": true,\n            \"createdAt\": \"2025-05-03T15:31:42.317Z\",\n            \"updatedAt\": \"2025-05-03T15:33:44.255Z\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Cancel Session",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{userToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/sessions/:sessionId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"sessions",
+								":sessionId"
+							],
+							"variable": [
+								{
+									"key": "sessionId",
+									"value": "session_id_here"
+								}
+							]
+						},
+						"description": "### Delete Session\n\nThis endpoint is used to delete a specific session.\n\n#### Request\n\n- Method: DELETE\n    \n- URL: `{{baseUrl}}/api/sessions/:sessionId`\n    \n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n- { \"message\": \"\" }\n    \n\n#### JSON Schema\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        }\n    }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Cancel Session",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{userToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/sessions/:sessionId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"sessions",
+										":sessionId"
+									],
+									"variable": [
+										{
+											"key": "sessionId",
+											"value": "6816375795d1f95aedc9b266"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-k7HbHEsIoENPNDwnJZoNzmtz7MQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 15:36:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Session cancelled successfully\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000"
+		},
+		{
+			"key": "userToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "speakerToken",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
