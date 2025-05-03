@@ -2,10 +2,6 @@
 
 A RESTful API for managing speaker session bookings, built with Node.js, Express, TypeScript, and MongoDB.
 
-<p align="center">
-  <img src="Screenshot 2025-05-03 210426.png" width="400" alt="Session Booking Screenshot">
-</p>
-
 ## Overview
 
 This application provides a platform for users to book sessions with tech speakers. It includes features for user and speaker registration, authentication, session booking, and management with email notifications and Google Calendar integration.
@@ -97,16 +93,45 @@ A Postman collection (`Speaker Session Booking API.postman_collection.json`) is 
 
 Below are examples of the email notifications sent by the system:
 
-| Email Type | Description | Screenshot |
-|------------|-------------|------------|
-| User OTP Verification | Email with OTP sent to users during registration | [View](Screenshot%202025-05-03%20205626.png) |
-| Speaker OTP Verification | Email with OTP sent to speakers during registration | [View](Screenshot%202025-05-03%20205802.png) |
-| User Session Booking | Confirmation email sent to users after booking a session | [View](Screenshot%202025-05-03%20210426.png) |
-| Speaker Session Booking | Notification email sent to speakers when a session is booked | [View](Screenshot%202025-05-03%20210519.png) |
-| User Calendar Invite | Calendar invitation sent to users | [View](Screenshot%202025-05-03%20210501.png) |
-| Speaker Calendar Invite | Calendar invitation sent to speakers | [View](Screenshot%202025-05-03%20210532.png) |
-| User Session Cancellation | Confirmation email sent to users after cancelling a session | [View](Screenshot%202025-05-03%20210638.png) |
-| Speaker Session Cancellation | Notification email sent to speakers when a session is cancelled | [View](Screenshot%202025-05-03%20210625.png) |
+<p align="center">
+  <img src="images/Screenshot 2025-05-03 205626.png" width="400" alt="User OTP Verification">
+  <br><em>User OTP Verification Email</em>
+</p>
+
+<p align="center">
+  <img src="images/Screenshot 2025-05-03 205802.png" width="400" alt="Speaker OTP Verification">
+  <br><em>Speaker OTP Verification Email</em>
+</p>
+
+<p align="center">
+  <img src="images/Screenshot 2025-05-03 210426.png" width="400" alt="User Session Booking">
+  <br><em>User Session Booking Confirmation</em>
+</p>
+
+<p align="center">
+  <img src="images/Screenshot 2025-05-03 210519.png" width="400" alt="Speaker Session Booking">
+  <br><em>Speaker Session Booking Notification</em>
+</p>
+
+<p align="center">
+  <img src="images/Screenshot 2025-05-03 210501.png" width="400" alt="User Calendar Invite">
+  <br><em>User Calendar Invitation</em>
+</p>
+
+<p align="center">
+  <img src="images/Screenshot 2025-05-03 210532.png" width="400" alt="Speaker Calendar Invite">
+  <br><em>Speaker Calendar Invitation</em>
+</p>
+
+<p align="center">
+  <img src="images/Screenshot 2025-05-03 210638.png" width="400" alt="User Session Cancellation">
+  <br><em>User Session Cancellation Confirmation</em>
+</p>
+
+<p align="center">
+  <img src="images/Screenshot 2025-05-03 210625.png" width="400" alt="Speaker Session Cancellation">
+  <br><em>Speaker Session Cancellation Notification</em>
+</p>
 
 ## Timezone Handling
 
